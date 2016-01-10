@@ -9,7 +9,9 @@ import java.io.IOException;
 public class MainClass extends JavaPlugin {
 
     public void onEnable() {
-
+        registerCommands();
+        registerEvents();
+        checkFiles();
     }
 
     public void onDisable() {
@@ -17,7 +19,7 @@ public class MainClass extends JavaPlugin {
     }
 
     private void registerCommands() {
-
+        getCommand("poll").setExecutor(new PollCommand());
     }
 
     private void registerEvents() {
@@ -30,10 +32,10 @@ public class MainClass extends JavaPlugin {
         if (!file.exists()) {
             try {
                 myFile.save(file);
-                System.out.println("Generating missing files.");
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            System.out.println("Generating missing files.");
         }
     }
 

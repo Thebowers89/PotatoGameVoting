@@ -1,0 +1,7 @@
+name: PotatoPoll
+main: Main.MainClass
+version: 1.0
+commands:
+    poll:
+        usage:
+        description:
